@@ -52,6 +52,15 @@ article {
   background-color: #e5e7a6;
 }
 
+#mobile_header {
+  visibility: hidden;
+  font-family: Tahoma, Gadget, sans-serif;
+  color: #000000;
+  font-size: 24px;
+  position: fixed;
+  left: 10px;
+}
+
 /* Desktop View  */
 @media (min-width: 992px) {
   section {
@@ -76,6 +85,12 @@ article {
 @media (max-width: 767px) {
   section {
     width: 100%;
+  }
+  #normal_header {
+    visibility: hidden;
+  }
+  #mobile_header {
+    visibility: visible;
   }
 }
 
