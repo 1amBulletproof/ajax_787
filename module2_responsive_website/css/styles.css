@@ -1,6 +1,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: #000000;
@@ -8,28 +9,79 @@ body {
   text-transform: uppercase;
   text-align: left;
 }
-  header {
+
+header {
   text-align: center;
   font-size: 200%;
 }
 
 section {
-  /* need to float these? */
   float: left;
-  width: 32%;
-  background-color: gray;
-  border: solid 2px;
-  padding: 5px;
+  background-color: #cfcfcf;
+  border: solid 1px;
   margin-left: 5px;
   margin-right: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
+  height: 180px;
+  overflow: hidden;
+}
+
+article {
+  padding-left: 10px;
+  padding-bottom: 10px;
+}
+
+.section_header {
+  position: relative;
+  margin: 0;
+  top: 0;
+  left: 50%;
+  width: 50%;
+  border: solid 1px;
+  text-align: center;
+}
+
+#chicken_header {
+  background-color: #ffa6a6;
+}
+#beef_header {
+  background-color: #fb0808;
+}
+#sushi_header {
+  background-color: #e5e7a6;
+}
+
+/* Desktop View  */
+@media (min-width: 992px) {
+  section {
+    width: 32%;
+  }
+}
+
+/* Tablet View */
+@media (min-width: 768px) and (max-width: 991px) {
+  #chicken_section {
+    width: 48%;
+  }
+  #beef_section {
+    width: 48%;
+  }
+  #sushi_section {
+    clear: both;
+  }
+}
+
+/* Mobile View */
+@media (max-width: 767px) {
+  section {
+    width: 100%;
+  }
 }
 
 /* for extra assignment part
-section:hover (MEDIA QUERY??) {
-  width/height change??
-  overflow: scroll;
-}
-
-*/
+   section:hover (MEDIA QUERY??) {
+     width/height change??
+     overflow: scroll;
+   }
+   */
