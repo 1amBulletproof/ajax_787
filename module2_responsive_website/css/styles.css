@@ -12,6 +12,7 @@ body {
 
 header {
   text-align: center;
+  position: static;
   font-size: 200%;
 }
 
@@ -23,23 +24,28 @@ section {
   margin-right: 5px;
   margin-top: 10px;
   margin-bottom: 10px;
-  height: 180px;
   overflow: hidden;
+  height: 190px;
 }
 
 article {
   padding-left: 10px;
   padding-bottom: 10px;
+  padding-right: 10px;
+  height: 180px;
+}
+
+article:hover {
+  overflow-y: scroll;
 }
 
 .section_header {
   position: relative;
   margin: 0;
   top: 0;
-  left: 50%;
-  width: 50%;
   border: solid 1px;
   text-align: center;
+  height: 50px;
 }
 
 #chicken_header {
@@ -57,8 +63,13 @@ article {
   font-family: Tahoma, Gadget, sans-serif;
   color: #000000;
   font-size: 24px;
-  position: fixed;
+  position: absolute;
   left: 10px;
+}
+
+.mobile_section_header {
+  visibility: hidden;
+  overflow: hidden;
 }
 
 /* Desktop View  */
@@ -66,10 +77,22 @@ article {
   section {
     width: 32%;
   }
+
+  #chicken_header {
+    left: 45%;
+    width: 55%;
+  }
+  #beef_header, #sushi_header {
+    left: 60%;
+    width: 40%
+  }
 }
 
 /* Tablet View */
 @media (min-width: 768px) and (max-width: 991px) {
+  section  {
+    margin-right: 10px;
+  }
   #chicken_section {
     width: 48%;
   }
@@ -79,11 +102,24 @@ article {
   #sushi_section {
     clear: both;
   }
+
+  #chicken_header {
+    left: 45%;
+    width: 55%;
+  }
+  #beef_header {
+    left: 60%;
+    width: 40%
+  }
+  #sushi_header {
+    left: 80%;
+    width: 20%
+  }
 }
 
 /* Mobile View */
 @media (max-width: 767px) {
-  section {
+  section .section_header {
     width: 100%;
   }
   #normal_header {
@@ -92,11 +128,17 @@ article {
   #mobile_header {
     visibility: visible;
   }
+  .section_header {
+    font-size: 100%;
+    position: static;
+    width: 100%;
+    height: auto;
+    text-align: center;
+  }
+  .mobile_section_header {
+    visibility: visible;
+  }
+  #chicken_header #beef_header #sushi_header {
+    width: 100%;
+  }
 }
-
-/* for extra assignment part
-   section:hover (MEDIA QUERY??) {
-     width/height change??
-     overflow: scroll;
-   }
-   */
