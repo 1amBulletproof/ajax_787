@@ -68,7 +68,7 @@ article:hover {
 }
 
 .mobile_section_header {
-  visibility: hidden;
+  display: none;
   overflow: hidden;
 }
 
@@ -136,7 +136,7 @@ article:hover {
     text-align: center;
   }
   .mobile_section_header {
-    visibility: visible;
+    display: inline;
   }
   #chicken_header #beef_header #sushi_header {
     width: 100%;
