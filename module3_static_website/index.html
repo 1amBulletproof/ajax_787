@@ -8,15 +8,50 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
   </head>
 <body>
 
-<body>
-
   <header>
-    <nav>TEST NAV</nav>
-    <span id="normal_header">Our Menu</span>
+    <nav id="header-nav" class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
 
+          <div class="navbar-brand">
+            <a href="index.html" class="pull-left">
+              <h1>FOOD, LLC</h1>
+            </a>
+          </div>
+
+<div class="visible-xs">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsible-nav" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <div id="collapsible-nav" class="collapse navbar-collapse">
+             <ul id="nav-list" class="nav navbar-nav">
+              <li>
+                <a href="#chicken_header">Chicken</a>
+              </li>
+              <li>
+                <a href="#beef_header">Beef</a>
+              </li>
+              <li>
+                <a href="#sushi_header">Sushi</a>
+              </li>
+            </ul><!-- #nav-list -->
+          </div><!-- .collapse .navbar-collapse -->
+        </div><!-- .visible-xs -->
+
+        </div><!-- .container -->
+      </div>
+    </nav><!-- #header-nav -->
+    <p>
+          <span>Our Menu</span>
+    </p>
   </header>
 
   <!-- Chicken Section -->
