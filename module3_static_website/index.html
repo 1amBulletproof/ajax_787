@@ -1,15 +1,17 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Website</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
-    <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
-  </head>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap Website</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Lora' rel='stylesheet' type='text/css'>
+</head>
+
 <body>
 
   <header>
@@ -23,71 +25,117 @@
             </a>
           </div>
 
-<div class="visible-xs">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsible-nav" aria-expanded="false">
+          <div class="visible-xs">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#collapsible-nav" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
 
-          <div id="collapsible-nav" class="collapse navbar-collapse">
-             <ul id="nav-list" class="nav navbar-nav">
-              <li>
-                <a href="#chicken_header">Chicken</a>
-              </li>
-              <li>
-                <a href="#beef_header">Beef</a>
-              </li>
-              <li>
-                <a href="#sushi_header">Sushi</a>
-              </li>
-            </ul><!-- #nav-list -->
-          </div><!-- .collapse .navbar-collapse -->
-        </div><!-- .visible-xs -->
-
-        </div><!-- .container -->
+            <div id="collapsible-nav" class="collapse navbar-collapse">
+              <ul id="nav-list" class="nav navbar-nav">
+                <li>
+                  <a href="#chicken_header">Chicken</a>
+                </li>
+                <li>
+                  <a href="#beef_header">Beef</a>
+                </li>
+                <li>
+                  <a href="#sushi_header">Sushi</a>
+                </li>
+              </ul>
+              <!-- #nav-list -->
+            </div>
+            <!-- .collapse .navbar-collapse -->
+          </div>
+          <!-- .visible-xs -->
+        </div>
+        <!-- navbar-header -->
       </div>
-    </nav><!-- #header-nav -->
-    <p>
-          <span>Our Menu</span>
-    </p>
+      <!-- .container -->
+    </nav>
+    <!-- #header-nav -->
   </header>
 
-  <!-- Chicken Section -->
-  <section id="chicken_section">
-    <h3 class="section_header" id="chicken_header">Chicken</h3>
-    <article id="chicken_article">
-      <p>
-        Bourbon chicken Brown stew chicken Bubur ayam Buffalo wing Buldak Butter chicken Cafreal Cashew chicken Chargha Chi-Mc Chicken 65 Chicken à la King Chicken and duck blood soup Chicken and dumplings Chicken and waffles Chicken balls Chicken bog Chicken
-        cacciatore Chicken Chettinad Chicken curry Chicken Divan Chicken fingers Chicken French Chicken fries Chicken karahi Chicken Kiev Chicken Lahori Chicken lollipop Chicken Marengo Chicken marsala</p>
-    </article>
-  </section>
+  <!-- MAIN CONTENT -->
+  <div id="main-content" class="container-fluid">
 
-  <!-- Beef Section -->
-  <section id="beef_section">
-    <h3 class="section_header" id="beef_header">Beef</h3>
-    <article id="beef_article">
-      <p>
-        Bandeja paisa Beef ball Beef bun Beef chow fun Beef Manhattan Beef Wellington Beefsteak Bife a cavalo Bistec de Palomilla Bistek Bitterballen Bò 7 món Boeuf à la mode Boiled beef Braciolone Bulalo Bulgogi Bún bò Huế Carne asada Carne-de-sol Chả lụa Chairo
-        Charqui Chateaubriand Cheeseburger Chorrillana Coda alla vaccinara Corned beef sandwich</p>
-    </article>
-  </section>
+    <!-- TITLE ROW -->
+    <div class="row">
+      <div id="head-title" class="col-md-12 col-sm-12 col-xs-12">
+        <p class="text-center"><span>Our Menu</span></p>
+      </div>
+    </div>
 
-  <!-- Sushi Section -->
-  <section id="sushi_section">
-    <h3 class="section_header" id="sushi_header">Sushi</h3>
-    <article id="sushi_article">
-      <p>Atlanta Roll Fried tuna, salmon, albacore with spicy aioli sauce. Baked Salmon Roll Broiled Salmon, crab, cucumber, cream cheese, and sweet sauce Bath Street Roll Octopus, crab, smelt egg, cream cheese, avocado and cucumber. Blue Crab California
-        Roll Lump blue crab meat with avocado and cucumber. Boston Roll Cooked Shrimp, avocado, cucumber, Tobiko. British Columbia Roll Grilled salmon skin, cucumber, and sweet sauce. California Roll Imitation crab, cucumber, and sesame seeds. Caterpillar
-        Roll Cucumber, avocado, unagi, kani kama. Chicken Teriyaki Roll Chicken Teriyaki and sliced cucumber topped with avocado. Classic Roll Also known as the "California Roll" Crazy Boy Roll Fried California Roll with eel sauce on top. Crazy Roll Spicy
-        Salmon, spicy tuna, avocado, crunch, masago wrapped inside soybean seaweed.</p>
-    </article>
-  </section>
+    <!-- CONTENT ROW -->
+    <div class="row">
+      <!-- Chicken Section -->
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <section id="chicken_section" class="article_section">
+          <h3 class="text-center" id="chicken_header">Chicken</h3>
+          <hr/>
+          <article id="chicken_article">
+            <p>
+              Bourbon chicken Brown stew chicken Bubur ayam Buffalo wing Buldak Butter chicken Cafreal Cashew chicken Chargha Chi-Mc Chicken 65 Chicken à la King Chicken and duck blood soup Chicken and dumplings Chicken and waffles Chicken balls Chicken bog Chicken
+              cacciatore Chicken Chettinad Chicken curry Chicken Divan Chicken fingers Chicken French Chicken fries Chicken karahi Chicken Kiev Chicken Lahori Chicken lollipop Chicken Marengo Chicken marsala
+              Bourbon chicken Brown stew chicken Bubur ayam Buffalo wing Buldak Butter chicken Cafreal Cashew chicken Chargha Chi-Mc Chicken 65 Chicken à la King Chicken and duck blood soup Chicken and dumplings Chicken and waffles Chicken balls Chicken bog Chicken
+              cacciatore Chicken Chettinad Chicken curry Chicken Divan</p>
+          </article>
+          <div class="text-center">
+            <a href=#head-title>back to top</a>
+          </div>
+        </section>
+      </div>
 
-<!-- jQuery (Bootstrap JS plugins depend on it) -->
-<script src="js/jquery-3.3.1.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/script.js"></script>
+      <!-- Beef Section -->
+      <div class="col-md-4 col-sm-6 col-xs-12">
+        <section id="beef_section" class="article_section">
+          <h3 class="text-center" id="beef_header">Beef</h3>
+          <hr/>
+          <article id="beef_article">
+            <p>
+              Bandeja paisa Beef ball Beef bun Beef chow fun Beef Manhattan Beef Wellington Beefsteak Bife a cavalo Bistec de Palomilla Bistek Bitterballen Bò 7 món Boeuf à la mode Boiled beef Braciolone Bulalo Bulgogi Bún bò Huế Carne asada Carne-de-sol Chả lụa Chairo
+              Charqui Chateaubriand Cheeseburger Chorrillana Coda alla vaccinara Corned beef sandwich
+              Bandeja paisa Beef ball Beef bun Beef chow fun Beef Manhattan Beef Wellington Beefsteak Bife a cavalo Bistec de Palomilla Bistek Bitterballen Bò 7 món Boeuf à la mode Boiled beef Braciolone Bulalo Bulgogi Bún bò Huế Carne asada Carne-de-sol Chả lụa Chairo
+              Charqui Chateaubriand Cheeseburger Chorrillana Coda alla vaccinara Corned beef sandwich
+              Bandeja paisa Beef ball Beef bun Beef chow fun Beef Manhattan Beef Wellington Beefsteak Bife a cavalo Bistec de Palomilla Bistek Bitterballen Bò 7 món Boeuf à la mode Boiled beef Braciolone Bulalo Bulgogi/p>
+          </article>
+          <div class="text-center">
+            <a href=#head-title>back to top</a>
+          </div>
+        </section>
+      </div>
+
+
+      <!-- Sushi Section -->
+      <div class="col-md-4 col-sm-12 col-xs-12">
+        <section id="sushi_section" class="article_section">
+          <h3 class="text-center" id="sushi_header">Sushi</h3>
+          <hr/>
+          <article id="sushi_article">
+            <p>Atlanta Roll Fried tuna, salmon, albacore with spicy aioli sauce. Baked Salmon Roll Broiled Salmon, crab, cucumber, cream cheese, and sweet sauce Bath Street Roll Octopus, crab, smelt egg, cream cheese, avocado and cucumber. Blue Crab California
+              Roll Lump blue crab meat with avocado and cucumber. Boston Roll Cooked Shrimp, avocado, cucumber, Tobiko. British Columbia Roll Grilled salmon skin, cucumber, and sweet sauce. California Roll Imitation crab, cucumber, and sesame seeds. Caterpillar
+              Roll Cucumber, avocado, unagi, kani kama. Chicken Teriyaki Roll Chicken Teriyaki and sliced cucumber topped with avocado. Classic Roll Also known as the "California Roll" Crazy Boy Roll Fried California Roll with eel sauce on top. Crazy
+              Roll Spicy Salmon, spicy tuna, avocado, crunch, masago wrapped inside soybean seaweed.
+              Roll Lump blue crab meat with avocado and cucumber. Boston Roll</p>
+          </article>
+          <div class="text-center">
+            <a href=#head-title>back to top</a>
+          </div>
+        </section>
+      </div>
+
+    </div>
+    <!-- End of Content Row -->
+
+  </div>
+  <!-- End of Main Content Container -->
+
+  <!-- jQuery (Bootstrap JS plugins depend on it) -->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/script.js"></script>
 </body>
+
 </html>

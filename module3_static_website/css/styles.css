@@ -1,9 +1,20 @@
+/**** GENERAL STUFF ****/
 body {
   font-size: 16px;
   color: #fff;
   background-color: #61122f;
   font-family: Oxygen;
 }
+
+a {
+  color: #100;
+}
+
+hr {
+  width: 50%;
+}
+/**** GENERAL STUFF END ****/
+
 
 /**** NAVIGATION STUFF START ****/
 #header-nav {
@@ -18,7 +29,7 @@ body {
 .navbar-brand h1 { /* Restaurant name */
   font-family: 'Lora', serif;
   color: #557c3e;
-  font-size: 1.5em;
+  font-size: 200%;
   text-transform: uppercase;
   font-weight: bold;
   text-shadow: 1px 1px 1px #222;
@@ -44,6 +55,7 @@ body {
 #nav-list a {
   color: #951C49;
   text-align: center;
+  font-size: 150%;
 }
 #nav-list a:hover {
   background: #fff;
@@ -60,3 +72,25 @@ body {
   margin-top: -45px;
 }
 /**** NAVIGATION STUFF END ****/
+
+
+/**** CONTENT STUFF *****/
+#head-title {
+  font-size: 200%;
+  padding-top: 5px;
+  font-weight: bold;
+}
+
+.article_section {
+  background-color: #cf8957;
+  color: #951C49;
+  padding-left: 10px;
+  padding-right: 10px;
+  height: 700px;
+}
+
+#chicken_header, #beef_header, #sushi_header {
+  padding-top: 10px;
+}
+
+/**** CONTENT STUFF END *****/
