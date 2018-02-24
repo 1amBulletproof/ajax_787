@@ -33,7 +33,7 @@ WARNING!!! WARNING!!!
 // Wrap the entire contents of script.js inside of an IIFE
 // See Lecture 52, part 2
 // (Note, Step 2 will be done in the SpeakHello.js file.)
-(function (window) {
+(function(window) {
   var script = {}
   script.names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
 
@@ -42,7 +42,7 @@ WARNING!!! WARNING!!!
   // using the 'speak' method or either helloSpeaker's or byeSpeaker's
   // 'speak' method.
   // See Lecture 50, part 1
-  for ( idx in script.names ) {
+  for (idx in script.names) {
     // console.log(script.names[idx]);
 
     // STEP 11 (DONE):
@@ -61,12 +61,44 @@ WARNING!!! WARNING!!!
     // 'j'. If the same, call byeSpeaker's 'speak' method with the current name
     // in the loop. Otherwise, call helloSpeaker's 'speak' method with the current
     // name in the loop.
-    if ( firstLetter === "j" ) {
+    if (firstLetter === "j") {
       window.byeSpeaker.speak(script.names[idx])
+
     } else {
       window.helloSpeaker.speak(script.names[idx])
+      script.greetings = script.names.map(window.helloSpeaker.speakSimple);
     }
   }
+
+  //Extra stuff using Array.prototype.map()
+  function makeGreeting(name) {
+    var firstLetter = name.charAt(0).toLowerCase();
+    if (firstLetter === "j") {
+      return (window.byeSpeaker.speakSimple(name));
+    } else {
+      return (window.helloSpeaker.speakSimple(name));
+    }
+  }
+  script.greetings = script.names.map(makeGreeting)
+  console.log(script.greetings)
+
+  //Extra stuff using Array.prototype.reduce()
+  script.splitGreetings = script.greetings.reduce(function(prevVal, elem) {
+    var firstLetter = elem.charAt(0).toLowerCase();
+    if (firstLetter === "g") {
+      prevVal.bye.push(elem);
+    } else {
+      prevVal.hello.push(elem);
+    }
+    return prevVal;
+  }, {
+    hello: [],
+    bye: []
+  });
+
+  console.log(script.splitGreetings.hello)
+  console.log(script.splitGreetings.bye)
+
 
   window.script = script
 
