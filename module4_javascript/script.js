@@ -42,6 +42,7 @@ WARNING!!! WARNING!!!
   // using the 'speak' method or either helloSpeaker's or byeSpeaker's
   // 'speak' method.
   // See Lecture 50, part 1
+  console.log("*** Printing Greetings Using speak() Methods ***")
   for (idx in script.names) {
     // console.log(script.names[idx]);
 
@@ -71,6 +72,7 @@ WARNING!!! WARNING!!!
   }
 
   //Extra stuff using Array.prototype.map()
+  console.log("*** Creating Greetings with Array.prototype.map() ***")
   function makeGreeting(name) {
     var firstLetter = name.charAt(0).toLowerCase();
     if (firstLetter === "j") {
@@ -83,6 +85,7 @@ WARNING!!! WARNING!!!
   console.log(script.greetings)
 
   //Extra stuff using Array.prototype.reduce()
+  console.log("*** Split Greetings into separate Arrays with Array.prototype.reduce() ***");
   script.splitGreetings = script.greetings.reduce(function(prevVal, elem) {
     var firstLetter = elem.charAt(0).toLowerCase();
     if (firstLetter === "g") {
