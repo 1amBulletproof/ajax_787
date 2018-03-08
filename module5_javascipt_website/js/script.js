@@ -182,16 +182,38 @@ dc.loadAboutPage = function () {
 }
 
 function buildAndShowAboutHtml(aboutHtml) {
-  console.log(aboutHtml)
-  console.log(getRandomIntNotIncludingZero(5))
+  // console.log(aboutHtml)
+  // console.log(getRandomIntNotIncludingZero(5))
+
+  var totalStarOutlines = 5
+  var numberOfStars = getRandomIntNotIncludingZero(5)
+  var numberOfBlankStars = totalStarOutlines - numberOfStars
+  var counter = 0
+  var propertyClass = "class"
+  var idx = 1;
+  for (; idx <= numberOfStars ; idx++) {
+    var propertyClassToReplace = propertyClass + idx
+    // console.log(propertyClassToReplace)
+    aboutHtml = insertProperty(aboutHtml, propertyClassToReplace, "fas fa-star")
+  }
+
+  for (; idx <= totalStarOutlines; idx++) {
+    var propertyClassToReplace = propertyClass + idx
+    aboutHtml = insertProperty(aboutHtml, propertyClassToReplace, "far fa-star")
+  }
+  // console.log(aboutHtml)
+
   insertHtml("#main-content", aboutHtml)
 
 }
+
 
 function getRandomIntNotIncludingZero(max) {
   var randomNum = Math.floor(Math.random() * Math.floor(max));
   return randomNum + 1
 }
+
+
 
 
 // Load the menu items view
