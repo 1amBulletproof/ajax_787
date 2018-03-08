@@ -14,6 +14,7 @@ $(function () { // Same as document.addEventListener("DOMContentLoaded"...
 var dc = {};
 
 var homeHtmlUrl = "snippets/home-snippet.html";
+var aboutHtmlUrl = "snippets/about-snippet.html";
 var allCategoriesUrl =
   "https://davids-restaurant.herokuapp.com/categories.json";
 var categoriesTitleHtml = "snippets/categories-title-snippet.html";
@@ -109,7 +110,7 @@ function buildAndShowHomeHTML (categories) {
   $ajaxUtils.sendGetRequest(
     homeHtmlUrl,
     function (homeHtml) {
-      console.log(homeHtml)
+      // console.log(homeHtml)
 
 
       // TODO: STEP 2: Here, call chooseRandomCategory, passing it retrieved 'categories'
@@ -117,10 +118,10 @@ function buildAndShowHomeHTML (categories) {
       // variable's name implies it expects.
       // var chosenCategoryShortName = ....
       var category = chooseRandomCategory(categories)
-      console.log(category)
+      // console.log(category)
       var chosenCategoryShortName = "'" + category.short_name + "'"
-      console.log(chosenCategoryShortName)
-      console.log(typeof(chosenCategoryShortName))
+      // console.log(chosenCategoryShortName)
+      // console.log(typeof(chosenCategoryShortName))
 
 
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
@@ -137,7 +138,7 @@ function buildAndShowHomeHTML (categories) {
       // var homeHtmlToInsertIntoMainPage = ....
       var propertyToReplace = "randomCategoryShortName"
       var homeHtmlToInsertIntoMainPage = insertProperty(homeHtml, propertyToReplace, chosenCategoryShortName )
-      console.log(homeHtmlToInsertIntoMainPage)
+      // console.log(homeHtmlToInsertIntoMainPage)
 
 
       // TODO: STEP 4: Insert the the produced HTML in STEP 3 into the main page
@@ -168,6 +169,29 @@ dc.loadMenuCategories = function () {
     allCategoriesUrl,
     buildAndShowCategoriesHTML);
 };
+
+//NEW - Assignment 5: Load the about viewport
+dc.loadAboutPage = function () {
+  showLoading("#main-content")
+  // Load about snippet page content
+  $ajaxUtils.sendGetRequest(
+    aboutHtmlUrl,
+    function (aboutHtml) {
+      buildAndShowAboutHtml(aboutHtml);
+    }, false)
+}
+
+function buildAndShowAboutHtml(aboutHtml) {
+  console.log(aboutHtml)
+  console.log(getRandomIntNotIncludingZero(5))
+  insertHtml("#main-content", aboutHtml)
+
+}
+
+function getRandomIntNotIncludingZero(max) {
+  var randomNum = Math.floor(Math.random() * Math.floor(max));
+  return randomNum + 1
+}
 
 
 // Load the menu items view
