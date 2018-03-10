@@ -10,7 +10,6 @@ function AppController($scope) {
   $scope.messageToUser = "";
 
   $scope.checkUserInput = function () {
-    //TODO: Implement this method
     $scope.messageToUser = "Checking User Input....";
     var numberOfEntries = calculateNumberOfEntries($scope.userInput)
     if (numberOfEntries > 0 && numberOfEntries <= 3) {
@@ -49,7 +48,7 @@ function AppController($scope) {
     style['border'] = "solid"
     style['border-color'] = color
     style['color'] = color
-    console.log(style)
+    // console.log(style)
     return style
   }
 
