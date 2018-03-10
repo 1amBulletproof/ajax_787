@@ -6,7 +6,7 @@ angular.module('App', [])
 
 AppController.$inject = ['$scope'];
 function AppController($scope) {
-  $scope.userInput = "list comma separated dishes you usually have for lunch";
+  $scope.userInput = "list comma separated dishes you usually have for lunch*";
   $scope.messageToUser = "";
 
   $scope.checkUserInput = function () {
@@ -31,9 +31,12 @@ function AppController($scope) {
       return 0
     }
     var splitString = string.split(',')
-    // console.log(splitString)
-    // console.log(splitString.length)
-    return splitString.length
+    console.log(splitString)
+    //BONUS
+    var cleanArray = splitString.filter(function(n){ return n.trim() != ""})
+    console.log(cleanArray)
+
+    return cleanArray.length
   }
 
 }
