@@ -14,12 +14,16 @@ function AppController($scope) {
     $scope.messageToUser = "Checking User Input....";
     var numberOfEntries = calculateNumberOfEntries($scope.userInput)
     if (numberOfEntries > 0 && numberOfEntries <= 3) {
+      $scope.myStyle = getMsgCss("green")
       $scope.messageToUser = "Enjoy!"
     } else if (numberOfEntries > 3) {
+      $scope.myStyle = getMsgCss("green")
       $scope.messageToUser = "Too much!"
     } else if (numberOfEntries == 0) {
+      $scope.myStyle = getMsgCss("red")
       $scope.messageToUser = "Please enter data first"
     } else {
+      $scope.myStyle = getMsgCss("red")
       $scope.messageToUser = "Whoops! There was an error"
     }
 
@@ -31,12 +35,22 @@ function AppController($scope) {
       return 0
     }
     var splitString = string.split(',')
-    console.log(splitString)
+    // console.log(splitString)
+
     //BONUS
     var cleanArray = splitString.filter(function(n){ return n.trim() != ""})
-    console.log(cleanArray)
+    // console.log(cleanArray)
 
     return cleanArray.length
+  }
+
+  function getMsgCss(color) {
+    var style = {}
+    style['border'] = "solid"
+    style['border-color'] = color
+    style['color'] = color
+    console.log(style)
+    return style
   }
 
 }
