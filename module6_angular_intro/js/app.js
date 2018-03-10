@@ -1,11 +1,13 @@
 (function () {
 'use strict';
 
-angular.module('module_6_app', [])
+angular.module('App', [])
+.controller('AppController', AppController);
 
-.controller('MyFirstController', function ($scope) {
-  $scope.userInput = "";
-  $scope.messageToUser = ""
+AppController.$inject = ['$scope'];
+function AppController($scope) {
+  $scope.userInput = "TEST";
+  $scope.messageToUser = "TEST";
 
   $scope.checkUserInput = function () {
     //TODO: Implement this method
@@ -18,6 +20,6 @@ angular.module('module_6_app', [])
     return 0;
   }
 
-});
+}
 
 })();
