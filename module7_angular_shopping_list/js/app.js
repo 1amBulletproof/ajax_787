@@ -5,12 +5,9 @@
   .controller('ToBuyController', ToBuyController)
   .controller('AlreadyBoughtController', AlreadyBoughtController)
   .service('ShoppingListCheckoffService', ShoppingListCheckoffService)
-  //.filter('custom', CustomFilterFactory)
-  //.filter('truth', TruthFilter);
-  //XXXController.$inject ['$scope', '$filter']
+  .filter('CustomPrice', CustomPriceFilterFactory)
 
   ToBuyController.$inject = ['$scope', 'ShoppingListCheckoffService'];
-  //function ToBuyController($scope, $filter, customFilter, customFilter) {
   function ToBuyController($scope, ShoppingListCheckoffService) {
     this.title = "To Buy:"
     this.toBuyItems = ShoppingListCheckoffService.getToBuyItems();
@@ -30,23 +27,28 @@
     var toBuyItems = [
       {
         name: "Milk",
-        quantity: "1"
+        quantity: "1",
+        pricePerItem: 3.0
       },
       {
         name: "Bread",
-        quantity: "2"
+        quantity: "2",
+        pricePerItem: 2.0
       },
       {
         name: "Eggs",
-        quantity: "12"
+        quantity: "12",
+        pricePerItem: 0.25
       },
       {
         name: "Water Bottles",
-        quantity: "24"
+        quantity: "24",
+        pricePerItem: 0.16
       },
       {
         name: "Beers",
-        quantity: "30"
+        quantity: "30",
+        pricePerItem: 1.0
       }
     ];
 
@@ -66,6 +68,14 @@
       toBuyItems.splice(toBuyItemIndex, numberToDelete)
 
     }
+  }
+
+  function CustomPriceFilterFactory() {
+    return function (input) {
+      var totalPrice = input.quantity * input.pricePerItem
+      var returnPriceString = "$$$" + String(totalPrice)
+      return returnPriceString
+    };
   }
 
 })();
