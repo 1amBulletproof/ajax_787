@@ -12,25 +12,16 @@
   ToBuyController.$inject = ['$scope', 'ShoppingListCheckoffService'];
   //function ToBuyController($scope, $filter, customFilter, customFilter) {
   function ToBuyController($scope, ShoppingListCheckoffService) {
-    console.log('ToBuyController start')
-    console.log($scope)
     this.title = "To Buy:"
     this.toBuyItems = ShoppingListCheckoffService.getToBuyItems();
-    console.log(this.toBuyItems)
-
-    console.log(ShoppingListCheckoffService)
 
     this.buyAnItem = function(index) {
-      console.log("Bought item " + index)
-      //TODO: call ShoppingListCheckoffService.buyAnItem(index)
       ShoppingListCheckoffService.buyAnItem(index)
     }
   }
 
   AlreadyBoughtController.$inject = ['$scope', 'ShoppingListCheckoffService'];
   function AlreadyBoughtController($scope, ShoppingListCheckoffService) {
-    console.log('AlreadyBoughtController start')
-    console.log($scope)
     this.title = "Already Bought:"
     this.boughtItems = ShoppingListCheckoffService.getBoughtItems();
   }
@@ -73,6 +64,8 @@
       console.log(toBuyItems[toBuyItemIndex])
 
       alreadyBoughtItems.push(toBuyItems[toBuyItemIndex])
+      var numberToDelete = 1
+      toBuyItems.splice(toBuyItemIndex, numberToDelete)
 
     }
   }
