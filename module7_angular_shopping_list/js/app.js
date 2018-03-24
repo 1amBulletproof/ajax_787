@@ -61,8 +61,6 @@
     }
 
     this.buyAnItem = function(toBuyItemIndex) {
-      console.log(toBuyItems[toBuyItemIndex])
-
       alreadyBoughtItems.push(toBuyItems[toBuyItemIndex])
       var numberToDelete = 1
       toBuyItems.splice(toBuyItemIndex, numberToDelete)
