@@ -12,10 +12,18 @@
     //TODO: create two way binding on input box to get search searchTerm
     this.searchTerm = ""
     //TODO: create method on button to get HTML from server
-    this.categories = ""
+    this.found = []
 
     this.narrowItDown = function () {
-      MenuSearchService.getMatchedMenuItems(this.searchTerm)
+      var filteredMenuItemsPromise = MenuSearchService.getMatchedMenuItems(this.searchTerm)
+      filteredMenuItemsPromise.then(function(result) {
+        console.log("got here")
+        console.log(result)
+        this.found = result
+      })
+      .catch(function(error) {
+        console.log(error)
+      })
     }
   }
 
@@ -33,31 +41,29 @@
 
 */
 
-  MenuSearchService.$inject = ['$http', 'ApiBasePath']
-  function MenuSearchService($http, ApiBasePath) {
+  MenuSearchService.$inject = ['$q', '$http', 'ApiBasePath']
+  function MenuSearchService($q, $http, ApiBasePath) {
 
     this.getMatchedMenuItems = function (searchTerm) {
       console.log("Get Items matching: " + searchTerm)
       console.log("Calling getMenuCategories")
 
-      var menuCategoriesPromise = this.getMenuCategories()
-      menuCategoriesPromise.then(function (categories) {
-        console.log(categories.data);
-        var promises = []
-        for (var i = 0; categories.data.length; i++ ) {
-          //make an array of all the promises required
-          promises += $http({
-            method: "GET",
-            url: (ApiBasePath + "/menu_items.json"),
-            params: {
-              category: categories.data[1].short_name
-            }
-          })
+      var allMenuItemsPromise = this.getAllMenuItems()
+      allMenuItemsPromise.then(function (allMenuItemData) {
+        // console.log(searchTerm)
+        // console.log(allMenuItemData);
+        // console.log(allMenuItemData.data.menu_items)
+        var menuItems = allMenuItemData.data.menu_items
+        var filteredMenuItems = []
+        for (var i = 0; i < menuItems.length; i++) {
+          // console.log(menuItems[i].description)
+          if (menuItems[i].description.match(searchTerm)) {
+            // console.log(menuItems[i])
+            filteredMenuItems.push(menuItems[i])
+          }
         }
-        return $q.all(promises)
-        })
-        .then(function(categoryData) {
-          console.log("process the result of every parallel process ?")
+        console.log(filteredMenuItems)
+        return filteredMenuItems
         })
         .catch(function (error) {
           console.log(error)
@@ -79,6 +85,15 @@
         params: {
           category: shortName
         }
+      });
+
+      return response;
+    };
+
+    this.getAllMenuItems = function (shortName) {
+      var response = $http({
+        method: "GET",
+        url: (ApiBasePath + "/menu_items.json"),
       });
 
       return response;
