@@ -1,80 +1,87 @@
 (function () {
   'use strict';
 
-  angular.module('ShoppingListCheckOff', [])
-  .controller('ToBuyController', ToBuyController)
-  .controller('AlreadyBoughtController', AlreadyBoughtController)
-  .service('ShoppingListCheckoffService', ShoppingListCheckoffService)
-  .filter('CustomPrice', CustomPriceFilterFactory)
+  angular.module('NarrowItDownApp', [])
+  .controller('NarrowItDownController', NarrowItDownController)
+  .service('MenuSearchService', MenuSearchService)
+  .constant('ApiBasePath', "https://davids-restaurant.herokuapp.com");
 
-  ToBuyController.$inject = ['$scope', 'ShoppingListCheckoffService'];
-  function ToBuyController($scope, ShoppingListCheckoffService) {
-    this.title = "To Buy:"
-    this.toBuyItems = ShoppingListCheckoffService.getToBuyItems();
+  NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
 
-    this.buyAnItem = function(index) {
-      ShoppingListCheckoffService.buyAnItem(index)
+  function NarrowItDownController($scope, MenuSearchService) {
+    //TODO: create two way binding on input box to get search searchTerm
+    this.searchTerm = ""
+    //TODO: create method on button to get HTML from server
+    this.categories = ""
+
+    this.narrowItDown = function () {
+      MenuSearchService.getMatchedMenuItems(this.searchTerm)
     }
   }
 
-  AlreadyBoughtController.$inject = ['$scope', 'ShoppingListCheckoffService'];
-  function AlreadyBoughtController($scope, ShoppingListCheckoffService) {
-    this.title = "Already Bought:"
-    this.boughtItems = ShoppingListCheckoffService.getBoughtItems();
+/*
+    var promise = MenuCategoriesService.getMenuCategories();
+
+    promise.then(function (response) {
+      menu.categories = response.data;
+    })
+    .catch(function (error) {
+      console.log("Something went terribly wrong.");
+    });
+
   }
 
-  function ShoppingListCheckoffService() {
-    var toBuyItems = [
-      {
-        name: "Milk",
-        quantity: "1",
-        pricePerItem: 3.0
-      },
-      {
-        name: "Bread",
-        quantity: "2",
-        pricePerItem: 2.0
-      },
-      {
-        name: "Eggs",
-        quantity: "12",
-        pricePerItem: 0.25
-      },
-      {
-        name: "Water Bottles",
-        quantity: "24",
-        pricePerItem: 0.16
-      },
-      {
-        name: "Beers",
-        quantity: "30",
-        pricePerItem: 1.0
+*/
+
+  MenuSearchService.$inject = ['$http', 'ApiBasePath']
+  function MenuSearchService($http, ApiBasePath) {
+
+    this.getMatchedMenuItems = function (searchTerm) {
+      console.log("Get Items matching: " + searchTerm)
+      console.log("Calling getMenuCategories")
+
+      var menuCategoriesPromise = this.getMenuCategories()
+      menuCategoriesPromise.then(function (categories) {
+        console.log(categories.data);
+        var promises = []
+        for (var i = 0; categories.data.length; i++ ) {
+          //make an array of all the promises required
+          promises += $http({
+            method: "GET",
+            url: (ApiBasePath + "/menu_items.json"),
+            params: {
+              category: categories.data[1].short_name
+            }
+          })
+        }
+        return $q.all(promises)
+        })
+        .then(function(categoryData) {
+          console.log("process the result of every parallel process ?")
+        })
+        .catch(function (error) {
+          console.log(error)
+        });
       }
-    ];
 
-    var alreadyBoughtItems = []
+    this.getMenuCategories = function () {
+      var response = $http({
+        method: "GET",
+        url: (ApiBasePath + "/categories.json")
+      });
+      return response;
+    };
 
-    this.getToBuyItems = function () {
-      return toBuyItems;
-    }
+    this.getMenuForCategory = function (shortName) {
+      var response = $http({
+        method: "GET",
+        url: (ApiBasePath + "/menu_items.json"),
+        params: {
+          category: shortName
+        }
+      });
 
-    this.getBoughtItems = function () {
-      return alreadyBoughtItems;
-    }
-
-    this.buyAnItem = function(toBuyItemIndex) {
-      alreadyBoughtItems.push(toBuyItems[toBuyItemIndex])
-      var numberToDelete = 1
-      toBuyItems.splice(toBuyItemIndex, numberToDelete)
-
-    }
-  }
-
-  function CustomPriceFilterFactory() {
-    return function (input) {
-      var totalPrice = input.quantity * input.pricePerItem
-      var returnPriceString = "$$$" + String(totalPrice)
-      return returnPriceString
+      return response;
     };
   }
 
