@@ -9,17 +9,15 @@
   NarrowItDownController.$inject = ['$scope', 'MenuSearchService'];
 
   function NarrowItDownController($scope, MenuSearchService) {
-    //TODO: create two way binding on input box to get search searchTerm
     this.searchTerm = ""
-    //TODO: create method on button to get HTML from server
     this.found = []
 
     this.narrowItDown = function () {
       var filteredMenuItemsPromise = MenuSearchService.getMatchedMenuItems(this.searchTerm)
       filteredMenuItemsPromise.then(function(result) {
-        console.log("got here")
-        console.log(result)
-        console.log($scope)
+        // console.log("got here")
+        // console.log(result)
+        // console.log($scope)
         $scope.Narrow.found = result
         // this.found = result
       })
@@ -29,26 +27,12 @@
     }
   }
 
-/*
-    var promise = MenuCategoriesService.getMenuCategories();
-
-    promise.then(function (response) {
-      menu.categories = response.data;
-    })
-    .catch(function (error) {
-      console.log("Something went terribly wrong.");
-    });
-
-  }
-
-*/
-
   MenuSearchService.$inject = ['$q', '$http', 'ApiBasePath']
   function MenuSearchService($q, $http, ApiBasePath) {
 
     this.getMatchedMenuItems = function (searchTerm) {
-      console.log("Get Items matching: " + searchTerm)
-      console.log("Calling getMenuCategories")
+      // console.log("Get Items matching: " + searchTerm)
+      // console.log("Calling getMenuCategories")
 
       var allMenuItemsPromise = this.getAllMenuItems()
       return allMenuItemsPromise.then(function (allMenuItemData) {
@@ -64,7 +48,7 @@
             filteredMenuItems.push(menuItems[i])
           }
         }
-        console.log(filteredMenuItems)
+        // console.log(filteredMenuItems)
         return filteredMenuItems
         })
         .catch(function (error) {
