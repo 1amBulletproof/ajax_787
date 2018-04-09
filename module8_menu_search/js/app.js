@@ -19,7 +19,9 @@
       filteredMenuItemsPromise.then(function(result) {
         console.log("got here")
         console.log(result)
-        this.found = result
+        console.log($scope)
+        $scope.Narrow.found = result
+        // this.found = result
       })
       .catch(function(error) {
         console.log(error)
@@ -49,7 +51,7 @@
       console.log("Calling getMenuCategories")
 
       var allMenuItemsPromise = this.getAllMenuItems()
-      allMenuItemsPromise.then(function (allMenuItemData) {
+      return allMenuItemsPromise.then(function (allMenuItemData) {
         // console.log(searchTerm)
         // console.log(allMenuItemData);
         // console.log(allMenuItemData.data.menu_items)
