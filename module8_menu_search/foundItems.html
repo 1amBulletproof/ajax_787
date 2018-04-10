@@ -1,0 +1,11 @@
+<div>
+  <ul>
+    <li ng-repeat="item in FoundItems.found">
+      <button ng-click="FoundItems.onRemove({index: $index});">Remove Item</button>
+      <div>
+        <div><b>Menu Item:</b> {{item.name}}</div>
+        <div><b>Description:</b> {{item.description}}</div>
+      </div>
+    </li>
+  </ul>
+</div>
