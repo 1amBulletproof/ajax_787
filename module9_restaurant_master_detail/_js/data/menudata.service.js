@@ -2,28 +2,34 @@
 'use strict';
 
 angular.module('Data')
-.service('MenuDataService', MenuDataService);
+.service('MenuDataService', MenuDataService)
+.constant('MenuCategoriesURL', "https://davids-restaurant.herokuapp.com/categories.json")
+.constant('MenuItemsURL', "https://davids-restaurant.herokuapp.com/menu_items.json");
 
+MenuDataService.$inject = ['$q', '$http', 'MenuCategoriesURL', 'MenuItemsURL']
 
-MenuDataService.$inject = ['$q']
-function ShoppingListService($q, $timeout) {
-
+function ShoppingListService($q, $http, MenuCategoriesURL, MenuItemsURL) {
+  
   this.getAllCategories = function() {
-    console.log("")
-  }
-  // Simulates call to server
-  // Returns a promise, NOT items array directly
-  service.getItems = function () {
-    var deferred = $q.defer();
-
-    // Wait 2 seconds before returning
-    $timeout(function () {
-      // deferred.reject(items);
-      deferred.resolve(items);
-    }, 800);
-
-    return deferred.promise;
+    var response = $http({
+      method: "GET",
+      url: MenuCategoriesURL
+    });
+    return response;
   };
+
+  this.getItemsForCategory = function(categoryShortName) {
+    var response = $http({
+      method: "GET",
+      url: MenuItemsURL,
+      params: {
+        category: categoryShortName
+      }
+    });
+
+    return response;
+  };
+
 }
 
 })();
