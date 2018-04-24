@@ -9,7 +9,7 @@ angular.module('Data')
 MenuDataService.$inject = ['$q', '$http', 'MenuCategoriesURL', 'MenuItemsURL']
 
 function ShoppingListService($q, $http, MenuCategoriesURL, MenuItemsURL) {
-  
+
   this.getAllCategories = function() {
     var response = $http({
       method: "GET",
