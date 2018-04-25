@@ -30,7 +30,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
                     return MenuDataService.getAllCategories()
                       .then(function (categories) {
                         return categories;
-                      };
+                      });
                   }]
     }
   })
