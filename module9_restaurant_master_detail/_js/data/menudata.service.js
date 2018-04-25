@@ -11,6 +11,7 @@ MenuDataService.$inject = ['$q', '$http', 'MenuCategoriesURL', 'MenuItemsURL']
 function MenuDataService($q, $http, MenuCategoriesURL, MenuItemsURL) {
 
   this.getAllCategories = function() {
+    console.log("getAllCategories start")
     var response = $http({
       method: "GET",
       url: MenuCategoriesURL
@@ -19,6 +20,7 @@ function MenuDataService($q, $http, MenuCategoriesURL, MenuItemsURL) {
   };
 
   this.getItemsForCategory = function(categoryShortName) {
+    console.log("getItemsForCategory")
     var response = $http({
       method: "GET",
       url: MenuItemsURL,

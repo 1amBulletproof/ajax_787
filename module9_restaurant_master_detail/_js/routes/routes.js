@@ -27,8 +27,10 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     resolve: {
       categories: ['MenuDataService',
                   function (MenuDataService) {
+                    console.log("calling getAllCategories()")
                     return MenuDataService.getAllCategories()
                       .then(function (categories) {
+                        console.log("promise returned")
                         return categories;
                       });
                   }]
@@ -41,10 +43,11 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     templateUrl: '_html/AllItems.template.html',
     controller: 'CategoryItemsController as categoryItems',
     resolve: {
-      items: ['$stateParams', 'ShoppingListService',
-            function ($stateParams, ShoppingListService) {
-              return MenuDataService.getItemsForCategory($stateParams.categoryShortName)
-                .then(function (items) {
+      items: ['$stateParams', 'MenuDataService',
+            function ($stateParams, MenuDataService) {
+              console.log("calling getItemsForCategory()")
+              return MenuDataService.getItemsForCategory($stateParams.categoryShortName).then(function (items) {
+                                console.log("promise returned")
                   return items;
                 });
             }]
