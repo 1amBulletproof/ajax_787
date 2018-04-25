@@ -1,7 +1,6 @@
-<h2>All Menu Categories:</h2>
 <ol>
-  <li ng-repeat="category in $ctrl.categories">
-    <b>CATEGORY GOES HERE</b>
-    <!-- {{ item.quantity }} of {{ item.name }} -->
-  </li>
+  <!-- <li ng-repeat="category in $ctrl.categories" ui-sref="categoryItems({category.name})"> -->
+    <li ng-repeat="category in $ctrl.categories">
+      Category: {{category.name}}
+    </li>
 </ol>

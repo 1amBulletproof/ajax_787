@@ -9,33 +9,36 @@
     <link rel="stylesheet" href="_css/bootstrap.min.css">
     <link rel="stylesheet" href="_css/styles.css">
 
-    <!-- Javascript library imports -->
-    <script src="_js/angular-ui-router.min.js"></script>
-    <script src="_js/angular.min.js"></script>
 
-    <!-- Javascript src imports -->
-    <script src="_js/data/data.module.js"></script>
-    <script src="_js/menu/menuapp.module.js"></script>
+
+
 
 </head>
 
 <body>
-    <!-- <div ng-controller="tmp">-->
-    <div class="container">
-        <h1>Restaurant Menu </h1>
+        <h1>Welcome to our Restaurant </h1>
 
-        <div class="form-group">
-            <span>PLACEHOLDER</span>
-        </div>
-        <div class="form-group narrow-button">
-            <button class="btn btn-primary">Narrow It Down For Me!</button>
-        </div>
-    </div>
+        <a>LINK TO CATEGORIES???</a>
+        <ui-view></ui-view>
 
-    <div class="container">
-        <span>PLACEHOLDER</span>
-    </div>
-    <!-- </div> -->
+        <!-- libraries -->
+        <script src="_js/lib/angular.min.js"></script>
+        <script src="_js/lib/angular-ui-router.min.js"></script>
+
+        <!-- Modules -->
+        <script src="_js/data/data.module.js"></script>
+        <script src="_js/menu/menuapp.module.js"></script>
+
+        <!-- Routes -->
+        <script src="_js/routes/routes.js"></script>
+
+        <!-- Services -->
+        <script src="_js/data/menudata.service.js"></script>
+
+        <!-- Components -->
+        <script src="_js/menu/categories.component.js"></script>
+        <script src="_js/menu/items.component.js"></script>
+
 
 </body>
 
