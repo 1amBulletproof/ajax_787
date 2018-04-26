@@ -6,7 +6,6 @@ angular.module('MenuApp')
 
 MenuCategoriesController.$inject = ['categories'];
 function MenuCategoriesController(categories) {
-  this.testItems = ["WORK", "DAMNIT"]
   this.categories = categories.data;
   console.log(this.categories)
 }
