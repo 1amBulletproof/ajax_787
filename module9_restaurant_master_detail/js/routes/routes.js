@@ -16,13 +16,13 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   // Home page
   .state('home', {
     url: '/',
-    templateUrl: '_html/home.template.html'
+    templateUrl: 'html/home.template.html'
   })
 
   // Categories list page
   .state('menuCategories', {
     url: '/menu-categories',
-    templateUrl: '_html/AllMenuCategories.template.html',
+    templateUrl: 'html/AllMenuCategories.template.html',
     controller: 'MenuCategoriesController as menuCategories',
     resolve: {
       categories: ['MenuDataService',
@@ -40,7 +40,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
   // Category Items list page
   .state('categoryItems', {
     url: '/category-item/{categoryShortName}',
-    templateUrl: '_html/AllItems.template.html',
+    templateUrl: 'html/AllItems.template.html',
     controller: 'CategoryItemsController as categoryItems',
     resolve: {
       items: ['$stateParams', 'MenuDataService',
