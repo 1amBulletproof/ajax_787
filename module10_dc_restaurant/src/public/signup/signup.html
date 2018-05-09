@@ -1,6 +1,22 @@
 <div class="container">
   <h2 id="menu-categories-title" class="text-center">Sign Up</h2>
   <div class="text-center">
-    Sign up here to receive access to a newsletter!
+    <div>Sign up here to receive access to a newsletter!</div>
+    <br>
+    <div>
+      First Name:<br>
+      <input class="input_form_text" type="text" ng-model="signCntrl.firstname"><br>
+      Last Name:<br>
+      <input class="input_form_text" type="text" ng-model="signCntrl.lastname"><br>
+      Email Address:<br>
+      <input class="input_form_text" type="email" ng-model="signCntrl.email"><br>
+      Phone Number:<br>
+      <input class="input_form_text" type="tel" ng-model="signCntrl.phone"><br>
+      Favorite Menu Item:<br>
+      <input class="input_form_text" type="text" ng-model="signCntrl.favItem"><br>
+      <br>
+      <button class="input_form_text" type="button" ng-click="signCntrl.signup()">SUBMIT</button>
+
+
   </div>
 </div>
