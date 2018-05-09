@@ -14,6 +14,14 @@ function SignUpController() {
 
   this.signup = function() {
     console.log("signup() begin")
+    console.log(this.firstname)
+    console.log(this.lastname)
+    console.log(this.email)
+    console.log(this.phone)
+    console.log(this.favItem)
+
+    //menu service retrieve fav item https://YOUR-CHOSEN-SUBDOMAIN.herokuapp.com/menu_items/SHORT-NAME.json
+
   }
 }
 
